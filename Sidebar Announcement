@@ -1,0 +1,157 @@
+<!-- <div id="blog_nav_admin" style="display:none"> </div> -->
+
+<!--
+<p class="gonggao"><a style="color: blue;font-weight: bold;" href="http://www.cnblogs.com/shwee/p/9056959.html">我的博客目录结构</a></p>
+ <p class="wenzi">一个不像技术博客的博客</p>
+<p>-------------------------</p>  
+-->
+<div id="right_site_articles" >
+    <div class="article-part-title">
+        <span>每日一句</span>
+    </div>
+    <ul class="side_article_list">
+    	每一个你不满意的现在，都有一个你没有努力的曾经。
+    </ul>
+</div>
+
+
+
+
+</br>  <!--  换行显示更美观 -->
+<!-- 添加公告栏时钟 -->
+<div id="clockdiv">
+    <canvas id="dom" width="120" height="120">时钟canvas</canvas>
+</div>
+<script type="text/javascript" src="https://files.cnblogs.com/files/shwee/clock.js"></script>
+</br>  <!--  换行显示更美观 -->
+
+
+<!-- 为页面添加爱心特效 -->
+<script type="text/javascript">
+
+(function(window,document,undefined){
+    var hearts = [];
+    
+    window.requestAnimationFrame = (function(){
+        return window.requestAnimationFrame || 
+        window.webkitRequestAnimationFrame ||
+        window.mozRequestAnimationFrame ||
+         window.oRequestAnimationFrame ||
+         window.msRequestAnimationFrame ||
+         function (callback){
+             setTimeout(callback,1000/60);
+         }
+    })();
+    
+    init();
+
+    function init(){
+        css(".heart{width: 10px;height: 10px;position: fixed;background: #f00;transform: rotate(45deg);-webkit-transform: rotate(45deg);-moz-transform: rotate(45deg);}.heart:after,.heart:before{content: '';width: inherit;height: inherit;background: inherit;border-radius: 50%;-webkit-border-radius: 50%;-moz-border-radius: 50%;position: absolute;}.heart:after{top: -5px;}.heart:before{left: -5px;}");
+        attachEvent();
+        gameloop();
+    }
+
+    function gameloop(){
+        for(var i=0;i<hearts.length;i++){
+            if(hearts[i].alpha <=0){
+                document.body.removeChild(hearts[i].el);
+                hearts.splice(i,1);
+                continue;
+             }
+
+             hearts[i].y--;
+             hearts[i].scale += 0.004;
+             hearts[i].alpha -= 0.013;
+             hearts[i].el.style.cssText = "left:"+hearts[i].x+"px;top:"+hearts[i].y+"px;opacity:"+hearts[i].alpha+";transform:scale("+hearts[i].scale+","+hearts[i].scale+") rotate(45deg);background:"+hearts[i].color;
+        }
+
+        requestAnimationFrame(gameloop);
+    }
+
+    function attachEvent(){
+        var old = typeof window.onclick==="function" && window.onclick;
+        window.onclick = function(event){
+            old && old();
+            createHeart(event);
+        }
+    }
+
+    function createHeart(event){
+        var d = document.createElement("div");
+        d.className = "heart";
+        hearts.push({
+            el : d,
+            x : event.clientX - 5,
+            y : event.clientY - 5,
+            scale : 1,
+            alpha : 1,
+            color : randomColor()
+        });
+
+        document.body.appendChild(d);
+    }
+
+    function css(css){
+        var style = document.createElement("style");
+        style.type="text/css";
+        try{
+            style.appendChild(document.createTextNode(css));
+        }
+        catch(ex){
+            style.styleSheet.cssText = css;
+        }
+
+        document.getElementsByTagName('head')[0].appendChild(style);
+    }
+
+    function randomColor(){
+        return "rgb("+(~~(Math.random()*255))+","+(~~(Math.random()*255))+","+(~~(Math.random()*255))+")";
+    }
+    
+})(window,document);
+</script>
+
+<!-- 在公共栏添加"站点统计"功能 -->
+<!--
+<div>
+<a href="https://info.flagcounter.com/Mywu"><img src="https://s11.flagcounter.com/count2/Mywu/bg_FFFFFF/txt_000000/border_CCCCCC/columns_2/maxflags_10/viewers_0/labels_0/pageviews_0/flags_0/percent_0/" alt="Flag Counter" border="0"></a>
+<div>
+-->
+
+<!-- 为博客底部添加音乐组件 -->
+<div id="player"  class="aplayer"></div>
+<link href="https://files.cnblogs.com/files/yusq77/APlayer.min_v1.10.1.css" rel="stylesheet">
+<script src="https://files.cnblogs.com/files/yusq77/APlayer.min_v1.10.1.js"></script> 
+
+<script type="text/javascript">
+var ap = new APlayer({
+    element: document.getElementById('player'),
+    narrow: false,
+    autoplay: false,          <!-- 是否自动播放 -->
+    showlrc: false,
+    loop: 'one',
+    listFolded: true,
+    theme: '#FFA500',      <!-- 插件背景（如音量柱）颜色，建议和你的公告栏背景色一样，这样融为一体的感觉 -->
+    music: [{
+            title: '夜色钢琴曲',
+            author: '赵海洋',
+            url: 'https://files.cnblogs.com/files/shwee/%E8%B5%B5%E6%B5%B7%E6%B4%8B-%E3%80%8A%E7%9E%AC%E9%97%B4%E7%9A%84%E6%B0%B8%E6%81%92%E3%80%8B%E5%A4%9C%E8%89%B2%E9%92%A2%E7%90%B4%E6%9B%B2.pdf',
+            pic: 'http://images.cnblogs.com/cnblogs_com/shwee/1218109/o_music_pic2.png'
+        },
+        {
+            title: 'A Little Story',
+            author: 'Valentin',
+            url: 'https://files.cnblogs.com/files/shwee/Valentin-A_Little_Story.pdf',
+            pic: 'http://images.cnblogs.com/cnblogs_com/shwee/1218109/o_music_pic4.png'
+        },
+        {
+            title: '琵琶语',
+            author: '林海',
+            url: 'https://files.cnblogs.com/files/shwee/%E6%9E%97%E6%B5%B7-%E7%90%B5%E7%90%B6%E8%AF%AD.pdf',
+            pic: 'http://images.cnblogs.com/cnblogs_com/shwee/1218109/o_music_pic1.png'
+        }
+    ]
+});
+ap.init();
+</script>
+</br> <!-- 为了美观 -->
