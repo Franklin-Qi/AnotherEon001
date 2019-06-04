@@ -1,0 +1,558 @@
+/*博客主题美化教程：  
+                                AnotherEon001主题：
+                                     https://www.cnblogs.com/shwee/p/9060226.html#shwtop
+                                     https://www.cnblogs.com/shwee/p/9084535.html#dingzhi3
+                                     https://zhuanlan.zhihu.com/p/56547307
+                                     https://www.jianshu.com/p/23b2bfc9a90d
+                                     https://segmentfault.com/a/1190000013001367    //markdown代码高亮
+
+                                LessIsMore主题：
+                                     https://www.cnblogs.com/JetpropelledSnake/p/9090675.html#top
+
+                                red_autumnal_leaves （红叶）主题：
+                                     https://www.cnblogs.com/real-me/p/8336741.html?spm=a2c4e.11153940.blogcont607419.6.7ab068aei11PaC
+*/
+
+#header{display:none;} /* 将默认的导航头屏蔽掉，这样才能把自己的导航栏加上去 */
+
+/*  定制自己导航栏的样式 */
+#shwtop ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none; /*去除li前的标注*/
+    background-color: #4682B4;
+    overflow: hidden; /*隐藏溢出的部分，保持一行*/
+}
+#shwtop li {
+    float: left; /*左浮动*/
+}
+#shwtop li a, .dropbtn {
+    display: inline-block; /*设置成块*/
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    padding: 14px 16px;
+}
+/*鼠标移上去，改变背景颜色*/
+#shwtop li a:hover, .dropdown:hover .dropbtn { 
+    /* 当然颜色你可以自己改成自己喜欢的 */
+    background-color: #5F9EA0;
+}
+#shwtop .dropdown {
+    /*
+    display:inline-block将对象呈递为内联对象，
+    但是对象的内容作为块对象呈递。
+    旁边的内联对象会被呈递在同一行内，允许空格。
+    */
+    display: inline-block;
+}
+#shwtop .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #FFF5EE; /*导航栏下拉中整体的颜色*/
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(255,102,0,0.2); /*下拉块中阴影颜色*/
+}
+#shwtop .dropdown-content a {
+    display: block;
+    color: black;
+    padding: 8px 10px;
+    text-decoration:none;
+}
+#shwtop .dropdown-content a:hover {
+    background-color: #40E0D0; /*每一个下拉块中鼠标移动的颜色*/
+}
+#shwtop .dropdown:hover .dropdown-content{
+    display: block;
+}
+
+/* 定制生成博客目录的CSS样式 */
+#uprightsideBar{
+    font-size:16px;
+    font-family:Arial, Helvetica, sans-serif;
+    text-align:left;
+    position:fixed;
+    /*
+    将div的位置固定到距离top:150px，right:0px的位置，
+    这样div就会处在最右边的位置，距离顶部150px，
+    当然这两个值你可以自己改。
+    */
+    top:150px;
+    right:0px;
+    width: auto;
+    height: auto; 
+}
+#sideBarTab{
+    float:left;
+    width:25px; 
+    box-shadow: 0 0 8px #877788;
+    border:1px solid #00DDC00;
+    border-right:none;
+    text-align:center;
+    background:rgb(0, 220, 0);
+}
+#sideBarContents{
+    float:left;
+    overflow:auto; 
+    overflow-x:hidden;!important;
+    width:200px;
+    min-height:101px;
+    max-height:460px;
+    border:1px solid #e5e5e5;
+    border-right:none; 
+    background:#ffffff;
+}
+#sideBarContents dl{
+    margin:0;
+    padding:0;
+}
+#sideBarContents dt{
+    margin-top:5px;
+    margin-left:5px;
+}
+#sideBarContents dd, dt {
+    cursor: pointer;
+}
+#sideBarContents dd:hover, dt:hover {
+    color:#A7995A;
+}
+#sideBarContents dd{
+    margin-left:20px;
+}
+
+/* 定制推荐和反对按键 */
+/*
+#div_digg{
+  position:fixed;
+  bottom:-10px;
+  width:120px;
+  right:20px;
+  box-shadow: 0 0 6px #0000FF;
+  border:2px solid #FF0000;
+  padding:4px;
+  background-color:#fff;
+  border-radius:4px 4px 4px 4px !important;
+}
+*/
+
+.icon_favorite {
+    background: transparent url('http://images.cnblogs.com/cnblogs_com/shwee/1218109/o_kj.gif') no-repeat 0 0;
+    padding-left: 15px;
+}
+
+#blog_post_info_block a {
+    text-decoration: none;
+    color: #5B9DCA;
+    padding: 3px;
+}
+
+/* 定制返回顶部按键；url中为图标地址 */
+#toTop {
+    background: url(https://img.alicdn.com/tfs/TB1KVXzXaigSKJjSsppXXabnpXa-88-88.png) no-repeat 0px top;
+    width: 90px;
+    height: 90px;
+    overflow: hidden;
+    position: fixed;
+    right: 50px;
+    bottom: 20px;
+    cursor: pointer;
+}
+
+/* 定制页面扩大按键 */
+#divExpandViewArea{
+    position: fixed;
+    color: white;
+    padding: 10px 10px;
+    left: 0px;
+    top: 400px;
+    cursor: pointer;
+    opacity: 0.9;
+    background-color: #68228B;
+}
+/* 定制页面缩小按键 */
+#divCollapseViewArea{
+    position: fixed;
+    color: white;
+    padding: 10px 10px;
+    left: 0px;
+    top: 445px;
+    cursor: pointer;
+    opacity: 0.9;
+    background-color: #68228B;
+}
+
+/* 定制公告栏文字信息 */
+.gonggao{
+    text-align: center;
+    font-size:17px;
+    color:blue;
+}
+.wenzi{
+    text-align: center;
+    font-size:15px;
+}
+
+/* 定制公告栏时钟位置 */
+#clockdiv {
+    /* left, center, right */
+    text-align: center;
+}
+
+/* 定制左侧随笔分类上下项之间的间距，左侧随笔分类显示有多少项，你就在后面增加多少项 */
+/* begin
+#CatList_LinkList_0_Link_0{
+}
+#CatList_LinkList_0_Link_1{
+    margin-top:10px;
+}
+#CatList_LinkList_0_Link_2{
+    margin-top:10px;
+}
+#CatList_LinkList_0_Link_3{
+    margin-top:10px;
+}
+#CatList_LinkList_0_Link_4{
+    margin-top:10px;
+}
+#CatList_LinkList_0_Link_5{
+    margin-top:10px;
+}
+#CatList_LinkList_0_Link_6{
+    margin-top:10px;
+}
+#CatList_LinkList_0_Link_7{
+    margin-top:10px;
+}
+#CatList_LinkList_0_Link_8{
+    margin-top:10px;
+}
+#CatList_LinkList_0_Link_9{
+    margin-top:10px;
+}
+#CatList_LinkList_0_Link_10{
+    margin-top:10px;
+}
+#CatList_LinkList_0_Link_11{
+    margin-top:10px;
+}
+#CatList_LinkList_0_Link_12{
+    margin-top:10px;
+}
+#CatList_LinkList_0_Link_13{
+    margin-top:10px;
+}
+#CatList_LinkList_0_Link_14{
+    margin-top:10px;
+}
+end */
+
+/* 设置签名格式 定制css样式 */
+#MySignature {
+    display: none;
+    background-color: #B2E866;
+    border-radius: 10px;
+    box-shadow: 1px 1px 1px #6B6B6B;
+    padding: 10px;
+    line-height: 1.5;
+    text-shadow: 1px 1px 1px #FFF;
+    font-size: 16px;
+    font-family: 'Microsoft Yahei';
+}
+
+/* 不显示底部广告*/
+#ad_t2,#cnblogs_c1,#under_post_news,#cnblogs_c2,#under_post_kb {
+    display:none; !important
+}
+
+#blogTitle h1 a {
+    color: rgb(255, 102, 0);  
+    font: 0.875em/1.5em "微软雅黑" , "PTSans" , "Arial" ,sans-serif;
+    font-size: 50px;
+}
+/*文章内容详情页面的标h2、h3的样式*/
+#cnblogs_post_body
+{
+    color: black;      
+    font: 0.875em/1.5em "微软雅黑" , "PTSans" , "Arial" ,sans-serif;
+    font-size: 15px;
+}
+/* 各个等级标题的颜色样式*/
+#cnblogs_post_body h1    {
+    background: #2B6695;
+    border-radius: 6px 6px 6px 6px;
+    box-shadow: 0 0 0 1px #5F5A4B, 1px 1px 6px 1px rgba(10, 10, 0, 0.5);
+    color: #FFFFFF;
+    font-family: "微软雅黑" , "宋体" , "黑体" ,Arial;
+    font-size: 23px;
+    font-weight: bold;
+    height: 25px;
+    line-height: 25px;
+    margin: 18px 0 !important;
+    padding: 8px 0 5px 5px;
+    text-shadow: 2px 2px 3px #222222;
+}
+
+/* 鼠标移动到h2、h3、h4文字时变橙色 */
+#cnblogs_post_body h2:hover {
+    color: rgb(255, 102, 0);
+}
+#cnblogs_post_body h3:hover {
+    color: rgb(255, 102, 0);
+}
+#cnblogs_post_body h4:hover {
+    color: rgb(255, 102, 0);
+}
+
+#cnblogs_post_body h2 {
+    background: #008EB7;
+    border-radius: 6px 6px 6px 6px;
+    box-shadow: 0 0 0 1px #5F5A4B, 1px 1px 6px 1px rgba(10, 10, 0, 0.5);
+    color: #FFFFFF;
+    font-family: "微软雅黑" , "宋体" , "黑体" ,Arial;
+    font-size: 17px;
+    font-weight: bold;
+    height: 25px;
+    line-height: 25px;
+    margin: 18px 0 !important;
+    padding: 8px 0 5px 5px;
+    text-shadow: 2px 2px 3px #222222;
+}
+#cnblogs_post_body h3 {
+    background: #2B6600;
+    border-radius: 6px 6px 6px 6px;
+    box-shadow: 0 0 0 1px #5F5A4B, 1px 1px 6px 1px rgba(10, 10, 0, 0.5);
+    color: #FFFFFF;
+    font-family: "微软雅黑" , "宋体" , "黑体" ,Arial;
+    font-size: 13px;
+    font-weight: bold;
+    height: 24px;
+    line-height: 23px;
+    margin: 12px 0 !important;
+    padding: 5px 0 5px 10px;
+    text-shadow: 2px 2px 3px #222222;
+}
+#cnblogs_post_body h4 {
+    background: #40E0D0;
+    border-radius: 6px 6px 6px 6px;
+    box-shadow: 0 0 0 1px #5F5A4B, 1px 1px 6px 1px rgba(10, 10, 0, 0.5);
+    color: #FFFFFF;
+    font-family: "微软雅黑" , "宋体" , "黑体" ,Arial;
+    font-size: 11px;
+    font-weight: bold;
+    height: 22px;
+    line-height: 21px;
+    margin: 12px 0 !important;
+    padding: 5px 0 5px 10px;
+    text-shadow: 2px 2px 3px #222222;
+}
+
+/* 公告栏日历样式设置 */
+.Cal {
+    border: 1px solid #F5F5F5;
+    width: 190px;   /*日历宽度*/
+    font-family: Arial;
+    font-size: 13px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    height: 180px;
+    background-color: #F5F5F5;   /*日历背景颜色*/
+    margin-left: 0;
+}
+/*日历的第一行标题  年份/月份这一栏配置*/
+.CalTitle {
+    background-color: #F5F5F5;
+    border-color: #adf;
+    font-family: Arial;
+    font-size: 14px;
+    color: #000;
+    margin-left: 0;
+    padding: 0;
+    height: 100%;
+    font-weight: bold;
+}
+/*日历的第二行  星期信息这一行配置*/
+.CalDayHeader {
+    background-color: #F5F5F5;
+}
+
+/* 定制博客背景（壁纸）图片，url里面是你的图片位置信息 */
+body { 
+     background-color: #efefef;
+     background-image:url(https://www.cnblogs.com/images/cnblogs_com/yusq77/1458740/o_post-bg-2019-04-24.jpg); 
+     background-repeat: no-repeat; 
+     background-attachment: fixed; 
+     background-position: center 0; 
+     background-size: cover; 
+    padding-top:0px;
+  }
+
+/* 定制公告栏音乐插件的样式 */
+.aplayer {
+    font-family: Arial,Helvetica,sans-serif;  /*音乐插件字体*/
+    margin: 0px;  /*音乐插件与公告栏左边的边距，0px就是直接抵到公告栏左边的边上*/
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,.14), 0 3px 1px -2px rgba(0,0,0,.2), 0 1px 5px 0 rgba(0,0,0,.12);
+    border-radius: 2px;
+    overflow: hidden;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    line-height: normal;
+}
+
+/* 修改博客首页标题内容显示 */
+a {
+    color: #5F9EA0;
+    text-decoration: none;
+}
+/* 修改博客首页内容显示 */
+.c_b_p_desc {
+    word-wrap: break-word;
+    word-break: break-all;
+    overflow: hidden;
+    font-style: italic;
+    line-height: 1.5;
+}
+
+/* 边栏显示 */
+#leftmenu h3 {
+    font-size: 20px;
+    margin: 0;
+    padding: 10px 0 10px 24px;
+    background-color: #f7f7f7;
+    border-left: 10px solid #FF9933;
+    font-weight: bold;
+    line-height: 1.2;
+    border-bottom: 1px solid #bbb;
+}
+
+/*
+使用了Monokai Sublime的黑色主题皮肤，但是还存在样式冲突，需要自己修改
+这个样式只适合使用makedown编写的博客
+Monokai Sublime style. Derived from Monokai by noformnocontent http://nn.mit-license.org/
+*/
+
+pre {
+    /*控制代码不换行*/
+    white-space: pre;
+    word-wrap: normal;
+}
+
+.cnblogs-markdown .hljs {
+    display: block;
+    overflow: auto;
+    padding: 1.3em 2em !important;
+    font-size: 16px !important;
+    background: #272822 !important;
+    color: #FFF;
+    max-height: 700px;
+}
+
+.hljs,
+.hljs-tag,
+.hljs-subst {
+    color: #f8f8f2;
+}
+
+.hljs-strong,
+.hljs-emphasis {
+    color: #a8a8a2;
+}
+
+.hljs-bullet,
+.hljs-quote,
+.hljs-number,
+.hljs-regexp,
+.hljs-literal,
+.hljs-link {
+    color: #ae81ff;
+}
+
+.hljs-code,
+.hljs-title,
+.hljs-section,
+.hljs-selector-class {
+    color: #a6e22e;
+}
+
+.hljs-strong {
+    font-weight: bold;
+}
+
+.hljs-emphasis {
+    font-style: italic;
+}
+
+.hljs-keyword,
+.hljs-selector-tag,
+.hljs-name,
+.hljs-attr {
+    color: #f92672;
+}
+
+.hljs-symbol,
+.hljs-attribute {
+    color: #66d9ef;
+}
+
+.hljs-params,
+.hljs-class .hljs-title {
+    color: #f8f8f2;
+}
+
+.hljs-string,
+.hljs-type,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-selector-id,
+.hljs-selector-attr,
+.hljs-selector-pseudo,
+.hljs-addition,
+.hljs-variable,
+.hljs-template-variable {
+    color: #e6db74;
+}
+
+.hljs-comment,
+.hljs-deletion,
+.hljs-meta {
+    color: #75715e;
+}
+
+/* 黑色主题makedown代码结束 */
+/*makedown行间代码样式 */
+.cnblogs-markdown code {
+    color: #c7254e;
+    border: none !important;
+    font-size: 1em !important;
+    background-color: #f9f2f4 !important;
+    font-family: sans-serif !important;
+}
+
+/* 每日一句 */
+#right_site_articles {
+    margin-bottom: 8px;
+    padding-top: 10px;
+    padding-bottom: 2px;
+    background-color:#f3f1c4;
+    box-shadow: 0 4px 10px rgba(0,0,0,.1);
+    font-size: 12px;
+}
+.article-part-title {
+    margin-right: 6px;
+    margin-left: 6px;
+    padding-bottom: 5px;
+    padding-left: 5px;
+    border-bottom: 1px solid #e3e3e3;
+    color: #000;
+    font-weight: 700;
+    font-size: 18px;
+}
+.article-part-title span {
+    display: inline-block;
+    text-decoration: none;
+}
+#right_site_articles ul {
+    margin-right: 6px;
+    margin-left: 10px;
+}
